@@ -1,2 +1,2 @@
-# wordpress-calendar-components-widget
-There will eventually be instructions here
+# byu-calendar-widget
+A demo plugin using the WordPress Plugin Boilerplate
