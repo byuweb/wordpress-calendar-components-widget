@@ -27,7 +27,7 @@
  * @subpackage BYU_Calendar_Widget/includes
  * @author     Sherwin Harris <devinvinson@gmail.com>
  */
-class BYU_Calendar_Widget {
+class WP_Calendar {
 
 	/**
 	 * The loader that's responsible for maintaining and registering all hooks that power
@@ -68,7 +68,7 @@ class BYU_Calendar_Widget {
 	 */
 	public function __construct() {
 
-		$this->plugin_name = 'byu-calendar-widget';
+		$this->plugin_name = 'wp-calendar';
 		$this->version = '0.1.0alpha';
 
 		$this->load_dependencies();

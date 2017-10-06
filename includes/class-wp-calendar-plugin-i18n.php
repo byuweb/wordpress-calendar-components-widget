@@ -24,7 +24,7 @@
  * @subpackage BYU_Calendar_Widget/includes
  * @author     Sherwin Harris <devinvinson@gmail.com>
  */
-class BYU_Calendar_Widget_i18n {
+class WP_Calendar_i18n {
 
 	/**
 	 * The domain specified for this plugin.

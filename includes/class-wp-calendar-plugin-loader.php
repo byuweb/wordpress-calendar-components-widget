@@ -21,7 +21,7 @@
  * @subpackage BYU_Calendar_Widget/includes
  * @author     Sherwin Harris <devinvinson@gmail.com>
  */
-class BYU_Calendar_Widget_Loader {
+class WP_Calendar_Loader {
 
 	/**
 	 * The array of actions registered with WordPress.

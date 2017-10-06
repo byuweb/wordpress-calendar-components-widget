@@ -14,7 +14,7 @@
  * Class WordPress_Plugin_Template_Settings
  *
  */
-class BYU_Calendar_Admin_Settings {
+class WP_Calendar_Admin_Settings {
 
 	/**
 	 * The ID of this plugin.

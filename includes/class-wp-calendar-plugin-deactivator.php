@@ -20,7 +20,7 @@
  * @subpackage BYU_Calendar_Widget/includes
  * @author     Sherwin Harris <devinvinson@gmail.com>
  */
-class BYU_Calendar_Widget_Deactivator {
+class WP_Calendar_Deactivator {
 
 	/**
 	 * Short Description. (use period)

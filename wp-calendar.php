@@ -36,7 +36,7 @@ if ( ! defined( 'WPINC' ) ) {
  */
 function activate_wp_calendar() {
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-wp-calendar-activator.php';
-	BYU_Calendar_Widget_Activator::activate();
+	WP_Calendar_Activator::activate();
 }
 
 /**
@@ -45,7 +45,7 @@ function activate_wp_calendar() {
  */
 function deactivate_wp_calendar() {
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-wp-calendar-deactivator.php';
-	BYU_Calendar_Widget_Deactivator::deactivate();
+	WP_Calendar_Deactivator::deactivate();
 }
 
 register_activation_hook( __FILE__, 'activate_wp_calendar' );
@@ -68,7 +68,7 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-wp-calendar.php';
  */
 function run_wp_calendar() {
 
-	$plugin = new BYU_Calendar_Widget();
+	$plugin = new WP_Calendar();
 	$plugin->run();
 
 }
