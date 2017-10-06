@@ -1,0 +1,44 @@
+(function() {
+    var data = {
+        /* STEP 1. REQUIRED. Set Categories Here: --- */
+        title: "Calendar Events",
+        /* STEP 2. REQUIRED. Set Categories Here: ---
+         See https://calendar.byu.edu/subscribe to find what category ids you want. Separate them by +'s. i.e. 10+4+151  ----- */
+        categories: "4+6+10",
+        /* -- If you want to allow ALL BYU Calendar events for this time period, set categories to all instead: */
+        //categories:  "all",
+        /* STEP 3. REQUIRED. Enter the number of days going forward from today -- */
+        days: 14,
+        /* STEP 4. OPTIONAL. IF you want to filter values to only those equal to or below a certain price, add a price filter in decimal or integer format -- */
+//            price: '5',
+        //price: '4.5',
+        price: '',
+        /* -- Display Type Options:
+        1: list type, grouped by date
+        2: Vertical tiles.
+        3: Horizontal tiles.4
+        4: Full Page calendar list with tile rows, including pricing/ticket info.
+        5: Full Page calendar list with image rows (grouped by date), including pricing/ticket info.
+        */
+        display: 4,
+        /* -- this limit is optional. It is for the purpose of putting a max limit on how many events are returned.
+        * The display type you choose will also determine the limit.I.e. for the list format you may want a limit of 10 or 20.
+        * For the vertical tile display you may want a limit of 3 or 4. For horizontal you may want a limit of 2 or 4.
+        * Note that tile displays will wrap to the next line if the number of events returned can't all fit in one row. */
+        limit: 10,  // no limit, the default. This will show however many events there are for the above criteria.
+//            limit: 3,
+    };
+
+    var unique = "parent-div-" + Math.floor(Math.random()*(9999999-1000000+1)+1000000);
+    document.write("<div class='block-calendar-widget-block' id='"+ unique +"'></div>");
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (xhttp.readyState == 4 && xhttp.status == 200) {
+            var response = xhttp.responseText;
+            document.getElementById(unique).innerHTML = response;
+        }
+    };
+    xhttp.open("POST", "https://calendar.byu.edu/calendar-widget/calendar-widget.php");
+    xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    xhttp.send(JSON.stringify(data));
+})();
