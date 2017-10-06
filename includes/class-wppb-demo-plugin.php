@@ -153,7 +153,7 @@ class BYU_Calendar_Widget {
 	private function define_admin_hooks() {
 
 		$plugin_admin = new BYU_Calendar_Widget_Admin( $this->get_plugin_name(), $this->get_version() );
-		$plugin_settings = new Wppb_Demo_Admin_Settings( $this->get_plugin_name(), $this->get_version() );
+		$plugin_settings = new BYU_Calendar_Admin_Settings( $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
