@@ -56,10 +56,10 @@ class BYU_Calendar_Admin_Settings {
 
 		//Add the menu to the Plugins set of menu items
 		add_plugins_page(
-			'WPPB Demo Options', 					// The title to be displayed in the browser window for this page.
-			'WPPB Demo Options',					// The text to be displayed for this menu item
+			'Calendar Widget Options', 					// The title to be displayed in the browser window for this page.
+			'Calendar Widget Options',					// The text to be displayed for this menu item
 			'manage_options',					// Which type of users can see this menu item
-			'wppb_demo_options',			// The unique ID - that is, the slug - for this menu item
+			'calendar_widget_options',			// The unique ID - that is, the slug - for this menu item
 			array( $this, 'render_settings_page_content')				// The name of the function to call when rendering this menu's page
 		);
 
@@ -126,7 +126,7 @@ class BYU_Calendar_Admin_Settings {
 		<!-- Create a header in the default WordPress 'wrap' container -->
 		<div class="wrap">
 
-			<h2><?php _e( 'WPPB Demo Options', 'byu-calendar-widget' ); ?></h2>
+			<h2><?php _e( 'Calendar Widget Options', 'byu-calendar-widget' ); ?></h2>
 			<?php settings_errors(); ?>
 
 			<?php if( isset( $_GET[ 'tab' ] ) ) {
@@ -140,9 +140,9 @@ class BYU_Calendar_Admin_Settings {
 			} // end if/else ?>
 
 			<h2 class="nav-tab-wrapper">
-				<a href="?page=wppb_demo_options&tab=display_options" class="nav-tab <?php echo $active_tab == 'display_options' ? 'nav-tab-active' : ''; ?>"><?php _e( 'Display Options', 'byu-calendar-widget' ); ?></a>
-				<a href="?page=wppb_demo_options&tab=social_options" class="nav-tab <?php echo $active_tab == 'social_options' ? 'nav-tab-active' : ''; ?>"><?php _e( 'Social Options', 'byu-calendar-widget' ); ?></a>
-				<a href="?page=wppb_demo_options&tab=input_examples" class="nav-tab <?php echo $active_tab == 'input_examples' ? 'nav-tab-active' : ''; ?>"><?php _e( 'Input Examples', 'byu-calendar-widget' ); ?></a>
+				<a href="?page=wp_calendar_plugin_options&tab=display_options" class="nav-tab <?php echo $active_tab == 'display_options' ? 'nav-tab-active' : ''; ?>"><?php _e( 'Display Options', 'byu-calendar-widget' ); ?></a>
+				<a href="?page=wp_calendar_plugin_options&tab=social_options" class="nav-tab <?php echo $active_tab == 'social_options' ? 'nav-tab-active' : ''; ?>"><?php _e( 'Social Options', 'byu-calendar-widget' ); ?></a>
+				<a href="?page=wp_calendar_plugin_options&tab=input_examples" class="nav-tab <?php echo $active_tab == 'input_examples' ? 'nav-tab-active' : ''; ?>"><?php _e( 'Input Examples', 'byu-calendar-widget' ); ?></a>
 			</h2>
 
 			<form method="post" action="options.php">
@@ -150,18 +150,18 @@ class BYU_Calendar_Admin_Settings {
 
 				if( $active_tab == 'display_options' ) {
 
-					settings_fields( 'wppb_demo_display_options' );
-					do_settings_sections( 'wppb_demo_display_options' );
+					settings_fields( 'wp_calendar_plugin_display_options' );
+					do_settings_sections( 'wp_calendar_plugin_display_options' );
 
 				} elseif( $active_tab == 'social_options' ) {
 
-					settings_fields( 'wppb_demo_social_options' );
-					do_settings_sections( 'wppb_demo_social_options' );
+					settings_fields( 'wp_calendar_plugin_social_options' );
+					do_settings_sections( 'wp_calendar_plugin_social_options' );
 
 				} else {
 
-					settings_fields( 'wppb_demo_input_examples' );
-					do_settings_sections( 'wppb_demo_input_examples' );
+					settings_fields( 'wp_calendar_plugin_input_examples' );
+					do_settings_sections( 'wp_calendar_plugin_input_examples' );
 
 				} // end if/else
 
@@ -178,11 +178,11 @@ class BYU_Calendar_Admin_Settings {
 	/**
 	 * This function provides a simple description for the General Options page.
 	 *
-	 * It's called from the 'wppb-demo_initialize_theme_options' function by being passed as a parameter
+	 * It's called from the 'wp-calendar-plugin_initialize_theme_options' function by being passed as a parameter
 	 * in the add_settings_section function.
 	 */
 	public function general_options_callback() {
-		$options = get_option('wppb_demo_display_options');
+		$options = get_option('wp_calendar_plugin_display_options');
 		var_dump($options);
 		echo '<p>' . __( 'Select which areas of content you wish to display.', 'byu-calendar-widget' ) . '</p>';
 	} // end general_options_callback
@@ -190,11 +190,11 @@ class BYU_Calendar_Admin_Settings {
 	/**
 	 * This function provides a simple description for the Social Options page.
 	 *
-	 * It's called from the 'wppb-demo_theme_initialize_social_options' function by being passed as a parameter
+	 * It's called from the 'wp-calendar-plugin_theme_initialize_social_options' function by being passed as a parameter
 	 * in the add_settings_section function.
 	 */
 	public function social_options_callback() {
-		$options = get_option('wppb_demo_social_options');
+		$options = get_option('wp_calendar_plugin_social_options');
 		var_dump($options);
 		echo '<p>' . __( 'Provide the URL to the social networks you\'d like to display.', 'byu-calendar-widget' ) . '</p>';
 	} // end general_options_callback
@@ -202,11 +202,11 @@ class BYU_Calendar_Admin_Settings {
 	/**
 	 * This function provides a simple description for the Input Examples page.
 	 *
-	 * It's called from the 'wppb-demo_theme_initialize_input_examples_options' function by being passed as a parameter
+	 * It's called from the 'wp-calendar-plugin_theme_initialize_input_examples_options' function by being passed as a parameter
 	 * in the add_settings_section function.
 	 */
 	public function input_examples_callback() {
-		$options = get_option('wppb_demo_input_examples');
+		$options = get_option('wp_calendar_plugin_input_examples');
 		var_dump($options);
 		echo '<p>' . __( 'Provides examples of the five basic element types.', 'byu-calendar-widget' ) . '</p>';
 	} // end general_options_callback
@@ -221,9 +221,9 @@ class BYU_Calendar_Admin_Settings {
 	public function initialize_display_options() {
 
 		// If the theme options don't exist, create them.
-		if( false == get_option( 'wppb_demo_display_options' ) ) {
+		if( false == get_option( 'wp_calendar_plugin_display_options' ) ) {
 			$default_array = $this->default_display_options();
-			add_option( 'wppb_demo_display_options', $default_array );
+			add_option( 'wp_calendar_plugin_display_options', $default_array );
 		}
 
 
@@ -231,7 +231,7 @@ class BYU_Calendar_Admin_Settings {
 			'general_settings_section',			            // ID used to identify this section and with which to register options
 			__( 'Display Options', 'byu-calendar-widget' ),		        // Title to be displayed on the administration page
 			array( $this, 'general_options_callback'),	    // Callback used to render the description of the section
-			'wppb_demo_display_options'		                // Page on which to add this section of options
+			'wp_calendar_plugin_display_options'		                // Page on which to add this section of options
 		);
 
 		// Next, we'll introduce the fields for toggling the visibility of content elements.
@@ -239,7 +239,7 @@ class BYU_Calendar_Admin_Settings {
 			'show_header',						        // ID used to identify the field throughout the theme
 			__( 'Header', 'byu-calendar-widget' ),					// The label to the left of the option interface element
 			array( $this, 'toggle_header_callback'),	// The name of the function responsible for rendering the option interface
-			'wppb_demo_display_options',	            // The page on which this option will be displayed
+			'wp_calendar_plugin_display_options',	            // The page on which this option will be displayed
 			'general_settings_section',			        // The name of the section to which this field belongs
 			array(								        // The array of arguments to pass to the callback. In this case, just a description.
 				__( 'Activate this setting to display the header.', 'byu-calendar-widget' ),
@@ -250,7 +250,7 @@ class BYU_Calendar_Admin_Settings {
 			'show_content',
 			__( 'Content', 'byu-calendar-widget' ),
 			array( $this, 'toggle_content_callback'),
-			'wppb_demo_display_options',
+			'wp_calendar_plugin_display_options',
 			'general_settings_section',
 			array(
 				__( 'Activate this setting to display the content.', 'byu-calendar-widget' ),
@@ -261,7 +261,7 @@ class BYU_Calendar_Admin_Settings {
 			'show_footer',
 			__( 'Footer', 'byu-calendar-widget' ),
 			array( $this, 'toggle_footer_callback'),
-			'wppb_demo_display_options',
+			'wp_calendar_plugin_display_options',
 			'general_settings_section',
 			array(
 				__( 'Activate this setting to display the footer.', 'byu-calendar-widget' ),
@@ -270,11 +270,11 @@ class BYU_Calendar_Admin_Settings {
 
 		// Finally, we register the fields with WordPress
 		register_setting(
-			'wppb_demo_display_options',
-			'wppb_demo_display_options'
+			'wp_calendar_plugin_display_options',
+			'wp_calendar_plugin_display_options'
 		);
 
-	} // end wppb-demo_initialize_theme_options
+	} // end wp-calendar-plugin_initialize_theme_options
 
 
 	/**
@@ -284,24 +284,24 @@ class BYU_Calendar_Admin_Settings {
 	 * This function is registered with the 'admin_init' hook.
 	 */
 	public function initialize_social_options() {
-		delete_option('wppb_demo_social_options');
-		if( false == get_option( 'wppb_demo_social_options' ) ) {
+		delete_option('wp_calendar_plugin_social_options');
+		if( false == get_option( 'wp_calendar_plugin_social_options' ) ) {
 			$default_array = $this->default_social_options();
-			update_option( 'wppb_demo_social_options', $default_array );
+			update_option( 'wp_calendar_plugin_social_options', $default_array );
 		} // end if
 
 		add_settings_section(
 			'social_settings_section',			// ID used to identify this section and with which to register options
 			__( 'Social Options', 'byu-calendar-widget' ),		// Title to be displayed on the administration page
 			array( $this, 'social_options_callback'),	// Callback used to render the description of the section
-			'wppb_demo_social_options'		// Page on which to add this section of options
+			'wp_calendar_plugin_social_options'		// Page on which to add this section of options
 		);
 
 		add_settings_field(
 			'twitter',
 			'Twitter',
 			array( $this, 'twitter_callback'),
-			'wppb_demo_social_options',
+			'wp_calendar_plugin_social_options',
 			'social_settings_section'
 		);
 
@@ -309,7 +309,7 @@ class BYU_Calendar_Admin_Settings {
 			'facebook',
 			'Facebook',
 			array( $this, 'facebook_callback'),
-			'wppb_demo_social_options',
+			'wp_calendar_plugin_social_options',
 			'social_settings_section'
 		);
 
@@ -317,13 +317,13 @@ class BYU_Calendar_Admin_Settings {
 			'googleplus',
 			'Google+',
 			array( $this, 'googleplus_callback'),
-			'wppb_demo_social_options',
+			'wp_calendar_plugin_social_options',
 			'social_settings_section'
 		);
 
 		register_setting(
-			'wppb_demo_social_options',
-			'wppb_demo_social_options',
+			'wp_calendar_plugin_social_options',
+			'wp_calendar_plugin_social_options',
 			array( $this, 'sanitize_social_options')
 		);
 
@@ -338,24 +338,24 @@ class BYU_Calendar_Admin_Settings {
 	 * This function is registered with the 'admin_init' hook.
 	 */
 	public function initialize_input_examples() {
-		//delete_option('wppb_demo_input_examples');
-		if( false == get_option( 'wppb_demo_input_examples' ) ) {
+		//delete_option('wp_calendar_plugin_input_examples');
+		if( false == get_option( 'wp_calendar_plugin_input_examples' ) ) {
 			$default_array = $this->default_input_options();
-			update_option( 'wppb_demo_input_examples', $default_array );
+			update_option( 'wp_calendar_plugin_input_examples', $default_array );
 		} // end if
 
 		add_settings_section(
 			'input_examples_section',
 			__( 'Input Examples', 'byu-calendar-widget' ),
 			array( $this, 'input_examples_callback'),
-			'wppb_demo_input_examples'
+			'wp_calendar_plugin_input_examples'
 		);
 
 		add_settings_field(
 			'Input Element',
 			__( 'Input Element', 'byu-calendar-widget' ),
 			array( $this, 'input_element_callback'),
-			'wppb_demo_input_examples',
+			'wp_calendar_plugin_input_examples',
 			'input_examples_section'
 		);
 
@@ -363,7 +363,7 @@ class BYU_Calendar_Admin_Settings {
 			'Textarea Element',
 			__( 'Textarea Element', 'byu-calendar-widget' ),
 			array( $this, 'textarea_element_callback'),
-			'wppb_demo_input_examples',
+			'wp_calendar_plugin_input_examples',
 			'input_examples_section'
 		);
 
@@ -371,7 +371,7 @@ class BYU_Calendar_Admin_Settings {
 			'Checkbox Element',
 			__( 'Checkbox Element', 'byu-calendar-widget' ),
 			array( $this, 'checkbox_element_callback'),
-			'wppb_demo_input_examples',
+			'wp_calendar_plugin_input_examples',
 			'input_examples_section'
 		);
 
@@ -379,7 +379,7 @@ class BYU_Calendar_Admin_Settings {
 			'Radio Button Elements',
 			__( 'Radio Button Elements', 'byu-calendar-widget' ),
 			array( $this, 'radio_element_callback'),
-			'wppb_demo_input_examples',
+			'wp_calendar_plugin_input_examples',
 			'input_examples_section'
 		);
 
@@ -387,13 +387,13 @@ class BYU_Calendar_Admin_Settings {
 			'Select Element',
 			__( 'Select Element', 'byu-calendar-widget' ),
 			array( $this, 'select_element_callback'),
-			'wppb_demo_input_examples',
+			'wp_calendar_plugin_input_examples',
 			'input_examples_section'
 		);
 
 		register_setting(
-			'wppb_demo_input_examples',
-			'wppb_demo_input_examples',
+			'wp_calendar_plugin_input_examples',
+			'wp_calendar_plugin_input_examples',
 			array( $this, 'validate_input_examples')
 		);
 
@@ -408,11 +408,11 @@ class BYU_Calendar_Admin_Settings {
 	public function toggle_header_callback($args) {
 
 		// First, we read the options collection
-		$options = get_option('wppb_demo_display_options');
+		$options = get_option('wp_calendar_plugin_display_options');
 
 		// Next, we update the name attribute to access this element's ID in the context of the display options array
 		// We also access the show_header element of the options collection in the call to the checked() helper function
-		$html = '<input type="checkbox" id="show_header" name="wppb_demo_display_options[show_header]" value="1" ' . checked( 1, isset( $options['show_header'] ) ? $options['show_header'] : 0, false ) . '/>';
+		$html = '<input type="checkbox" id="show_header" name="wp_calendar_plugin_display_options[show_header]" value="1" ' . checked( 1, isset( $options['show_header'] ) ? $options['show_header'] : 0, false ) . '/>';
 
 		// Here, we'll take the first argument of the array and add it to a label next to the checkbox
 		$html .= '<label for="show_header">&nbsp;'  . $args[0] . '</label>';
@@ -423,9 +423,9 @@ class BYU_Calendar_Admin_Settings {
 
 	public function toggle_content_callback($args) {
 
-		$options = get_option('wppb_demo_display_options');
+		$options = get_option('wp_calendar_plugin_display_options');
 
-		$html = '<input type="checkbox" id="show_content" name="wppb_demo_display_options[show_content]" value="1" ' . checked( 1, isset( $options['show_content'] ) ? $options['show_content'] : 0, false ) . '/>';
+		$html = '<input type="checkbox" id="show_content" name="wp_calendar_plugin_display_options[show_content]" value="1" ' . checked( 1, isset( $options['show_content'] ) ? $options['show_content'] : 0, false ) . '/>';
 		$html .= '<label for="show_content">&nbsp;'  . $args[0] . '</label>';
 
 		echo $html;
@@ -434,9 +434,9 @@ class BYU_Calendar_Admin_Settings {
 
 	public function toggle_footer_callback($args) {
 
-		$options = get_option('wppb_demo_display_options');
+		$options = get_option('wp_calendar_plugin_display_options');
 
-		$html = '<input type="checkbox" id="show_footer" name="wppb_demo_display_options[show_footer]" value="1" ' . checked( 1, isset( $options['show_footer'] ) ? $options['show_footer'] : 0, false ) . '/>';
+		$html = '<input type="checkbox" id="show_footer" name="wp_calendar_plugin_display_options[show_footer]" value="1" ' . checked( 1, isset( $options['show_footer'] ) ? $options['show_footer'] : 0, false ) . '/>';
 		$html .= '<label for="show_footer">&nbsp;'  . $args[0] . '</label>';
 
 		echo $html;
@@ -446,7 +446,7 @@ class BYU_Calendar_Admin_Settings {
 	public function twitter_callback() {
 
 		// First, we read the social options collection
-		$options = get_option( 'wppb_demo_social_options' );
+		$options = get_option( 'wp_calendar_plugin_social_options' );
 
 		// Next, we need to make sure the element is defined in the options. If not, we'll set an empty string.
 		$url = '';
@@ -455,13 +455,13 @@ class BYU_Calendar_Admin_Settings {
 		} // end if
 
 		// Render the output
-		echo '<input type="text" id="twitter" name="wppb_demo_social_options[twitter]" value="' . $url . '" />';
+		echo '<input type="text" id="twitter" name="wp_calendar_plugin_social_options[twitter]" value="' . $url . '" />';
 
 	} // end twitter_callback
 
 	public function facebook_callback() {
 
-		$options = get_option( 'wppb_demo_social_options' );
+		$options = get_option( 'wp_calendar_plugin_social_options' );
 
 		$url = '';
 		if( isset( $options['facebook'] ) ) {
@@ -469,13 +469,13 @@ class BYU_Calendar_Admin_Settings {
 		} // end if
 
 		// Render the output
-		echo '<input type="text" id="facebook" name="wppb_demo_social_options[facebook]" value="' . $url . '" />';
+		echo '<input type="text" id="facebook" name="wp_calendar_plugin_social_options[facebook]" value="' . $url . '" />';
 
 	} // end facebook_callback
 
 	public function googleplus_callback() {
 
-		$options = get_option( 'wppb_demo_social_options' );
+		$options = get_option( 'wp_calendar_plugin_social_options' );
 
 		$url = '';
 		if( isset( $options['googleplus'] ) ) {
@@ -483,33 +483,33 @@ class BYU_Calendar_Admin_Settings {
 		} // end if
 
 		// Render the output
-		echo '<input type="text" id="googleplus" name="wppb_demo_social_options[googleplus]" value="' . $url . '" />';
+		echo '<input type="text" id="googleplus" name="wp_calendar_plugin_social_options[googleplus]" value="' . $url . '" />';
 
 	} // end googleplus_callback
 
 	public function input_element_callback() {
 
-		$options = get_option( 'wppb_demo_input_examples' );
+		$options = get_option( 'wp_calendar_plugin_input_examples' );
 
 		// Render the output
-		echo '<input type="text" id="input_example" name="wppb_demo_input_examples[input_example]" value="' . $options['input_example'] . '" />';
+		echo '<input type="text" id="input_example" name="wp_calendar_plugin_input_examples[input_example]" value="' . $options['input_example'] . '" />';
 
 	} // end input_element_callback
 
 	public function textarea_element_callback() {
 
-		$options = get_option( 'wppb_demo_input_examples' );
+		$options = get_option( 'wp_calendar_plugin_input_examples' );
 
 		// Render the output
-		echo '<textarea id="textarea_example" name="wppb_demo_input_examples[textarea_example]" rows="5" cols="50">' . $options['textarea_example'] . '</textarea>';
+		echo '<textarea id="textarea_example" name="wp_calendar_plugin_input_examples[textarea_example]" rows="5" cols="50">' . $options['textarea_example'] . '</textarea>';
 
 	} // end textarea_element_callback
 
 	public function checkbox_element_callback() {
 
-		$options = get_option( 'wppb_demo_input_examples' );
+		$options = get_option( 'wp_calendar_plugin_input_examples' );
 
-		$html = '<input type="checkbox" id="checkbox_example" name="wppb_demo_input_examples[checkbox_example]" value="1"' . checked( 1, $options['checkbox_example'], false ) . '/>';
+		$html = '<input type="checkbox" id="checkbox_example" name="wp_calendar_plugin_input_examples[checkbox_example]" value="1"' . checked( 1, $options['checkbox_example'], false ) . '/>';
 		$html .= '&nbsp;';
 		$html .= '<label for="checkbox_example">This is an example of a checkbox</label>';
 
@@ -519,13 +519,13 @@ class BYU_Calendar_Admin_Settings {
 
 	public function radio_element_callback() {
 
-		$options = get_option( 'wppb_demo_input_examples' );
+		$options = get_option( 'wp_calendar_plugin_input_examples' );
 
-		$html = '<input type="radio" id="radio_example_one" name="wppb_demo_input_examples[radio_example]" value="1"' . checked( 1, $options['radio_example'], false ) . '/>';
+		$html = '<input type="radio" id="radio_example_one" name="wp_calendar_plugin_input_examples[radio_example]" value="1"' . checked( 1, $options['radio_example'], false ) . '/>';
 		$html .= '&nbsp;';
 		$html .= '<label for="radio_example_one">Option One</label>';
 		$html .= '&nbsp;';
-		$html .= '<input type="radio" id="radio_example_two" name="wppb_demo_input_examples[radio_example]" value="2"' . checked( 2, $options['radio_example'], false ) . '/>';
+		$html .= '<input type="radio" id="radio_example_two" name="wp_calendar_plugin_input_examples[radio_example]" value="2"' . checked( 2, $options['radio_example'], false ) . '/>';
 		$html .= '&nbsp;';
 		$html .= '<label for="radio_example_two">Option Two</label>';
 
@@ -535,9 +535,9 @@ class BYU_Calendar_Admin_Settings {
 
 	public function select_element_callback() {
 
-		$options = get_option( 'wppb_demo_input_examples' );
+		$options = get_option( 'wp_calendar_plugin_input_examples' );
 
-		$html = '<select id="time_options" name="wppb_demo_input_examples[time_options]">';
+		$html = '<select id="time_options" name="wp_calendar_plugin_input_examples[time_options]">';
 		$html .= '<option value="default">' . __( 'Select a time option...', 'byu-calendar-widget' ) . '</option>';
 		$html .= '<option value="never"' . selected( $options['time_options'], 'never', false) . '>' . __( 'Never', 'byu-calendar-widget' ) . '</option>';
 		$html .= '<option value="sometimes"' . selected( $options['time_options'], 'sometimes', false) . '>' . __( 'Sometimes', 'byu-calendar-widget' ) . '</option>';

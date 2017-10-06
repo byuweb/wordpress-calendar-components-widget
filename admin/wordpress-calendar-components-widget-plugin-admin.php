@@ -95,7 +95,7 @@ class BYU_Calendar_Widget_Admin {
 		 * class.
 		 */
 
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/byu-calendar-widget-admin.css', array(), $this->version, 'all' );
+		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/wp-calendar-plugin-admin.css', array(), $this->version, 'all' );
 
 	}
 
@@ -118,7 +118,7 @@ class BYU_Calendar_Widget_Admin {
 		 * class.
 		 */
 
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/byu-calendar-widget-admin.js', array( 'jquery' ), $this->version, false );
+		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/wp-calendar-plugin-admin.js', array( 'jquery' ), $this->version, false );
 
 	}
 

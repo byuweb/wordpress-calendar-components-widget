@@ -14,7 +14,7 @@
  *
  * @wordpress-plugin
  * Plugin Name:       WPPB Demo Plugin
- * Plugin URI:        https://github.com/byuweb/wordpress-calendar-components-widget
+ * Plugin URI:        https://github.com/byuweb/wp-calendar
  * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
  * Version:           0.1.0alpha
  * Author:            Sherwin Harris
