@@ -20,7 +20,7 @@
  * @subpackage BYU_Calendar_Widget/public
  * @author     Sherwin Harris <devinvinson@gmail.com>
  */
-class BYU_Calendar_Widget_Public {
+class WP_Calendar_Public {
 
 	/**
 	 * The ID of this plugin.
